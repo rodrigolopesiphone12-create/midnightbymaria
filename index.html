@@ -9,11 +9,22 @@
 <body>
     <header><h1>MIDNIGHT BY MARIA</h1></header>
     <main class="container" id="posts-container"></main>
-
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // Nota: Em sites profissionais, isto lê os ficheiros gerados pelo CMS.
         // Como o Decap CMS cria ficheiros JSON/Markdown, o site lerá esses dados.
     </script>
+    <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
